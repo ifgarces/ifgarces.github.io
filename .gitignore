@@ -1,8 +1,0 @@
-*.gem
-*.rbc
-/tmp/
-
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
-.rvmrc
