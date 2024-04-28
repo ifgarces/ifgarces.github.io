@@ -1,0 +1,34 @@
+name: 🕵️ Lint
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+    steps:
+      - name: ⏬ Checkout
+        uses: actions/checkout@v3
+
+      - name: 💡 Set-up Node version ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 📦 Install Node dependencies
+        working-directory: ifgarces-dev-website
+        run: yarn install --emoji=true --non-interactive
+
+      - name: 🕵️ Lint check
+        working-directory: ifgarces-dev-website
+        run: yarn lint:check --color
