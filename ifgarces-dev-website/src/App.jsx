@@ -14,6 +14,7 @@ export default class App extends Component {
           Welcome. This is about to be <strong className="text-danger">ifgarces</strong>’s
           portfolio website.
         </p>
+        <a className="btn btn-primary" href="#">Primary button here</a>
       </div>
     );
   }

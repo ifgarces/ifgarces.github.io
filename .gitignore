@@ -1,2 +1,4 @@
-!/.vscode/extensions.json
 /**/.idea/
+/.vscode/*
+!/.vscode/extensions.json
+!/.vscode/settings.json

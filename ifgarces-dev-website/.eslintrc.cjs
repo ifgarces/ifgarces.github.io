@@ -25,6 +25,7 @@ module.exports = { // eslint-disable-line no-undef
     // Styling
     "indent":  ["error", 2, { "ignoredNodes": ["JSXAttribute"] }],
     "quotes":  ["error", "double", { "avoidEscape": true }],
+    "semi": ["error", "always"],
     "camelcase":             ["error", { "properties": "always", "ignoreGlobals": true }],
     "react/jsx-pascal-case": "error",
     "max-len": [
@@ -59,13 +60,13 @@ module.exports = { // eslint-disable-line no-undef
     "no-shadow": "error",
     "no-nested-ternary":   "error",
     "no-unneeded-ternary": "error"
-  },
-  "overrides": [
-    {
-      "files": ["**/*.jsx"],
-      "rules": {
-        "react/react-in-jsx-scope": "off"
-      }
-    }
-  ]
+  }
+  // "overrides": [
+  //   {
+  //     "files": ["**/*.jsx"],
+  //     "rules": {
+  //       "react/react-in-jsx-scope": "off"
+  //     }
+  //   }
+  // ]
 };
