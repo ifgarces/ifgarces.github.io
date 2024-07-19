@@ -1,72 +1,72 @@
-module.exports = { // eslint-disable-line no-undef
-  root:     true,
-  env:      { browser: true },
-  settings: {
-    react: { version: "detect" }
-  },
-  parserOptions: {
-    ecmaVersion:  2021,
-    sourceType:   "module",
-    ecmaFeatures: { jsx: true }
-  },
+/* eslint-disable no-undef */
+module.exports = {
+  root:    true,
+  env:     { browser: true, es2020: true, jest: true },
   extends: [
     "eslint:recommended",
+    "plugin:react-hooks/recommended",
     "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended"
+    "plugin:react/jsx-runtime"
   ],
-  ignorePatterns: ["node_modules", "/**/*.html", "build"],
-  plugins:        [
+  ignorePatterns:  ["dist", "node_modules", "/**/*.html"],
+  "parser":        "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 14,
+    "sourceType":  "module"
+  },
+  plugins: [
     "react",
     "react-refresh",
     "require-explicit-generics"
   ],
   rules: {
-    // Styling
-    "indent":  ["error", 2, { "ignoredNodes": ["JSXAttribute"] }],
-    "quotes":  ["error", "double", { "avoidEscape": true }],
-    "semi": ["error", "always"],
-    "camelcase":             ["error", { "properties": "always", "ignoreGlobals": true }],
-    "react/jsx-pascal-case": "error",
-    "max-len": [
-      "warn", 100, { "ignoreComments": false, "ignoreTrailingComments": true, "ignoreUrls": true }
-    ],
-    "eol-last":             ["error", "always"],
-    "no-trailing-spaces":   "error",
-    "no-multi-spaces":      "error",
-    "comma-spacing":        ["error", { "before": false, "after": true }],
-    "comma-dangle":         ["error", "never"],
-
-    "func-style":             ["error", "declaration", { "allowArrowFunctions": false }],
-    "function-paren-newline": ["error", "consistent"],
-
-    "react/jsx-curly-spacing": [
-      "error", { "when": "never", "children": { "when": "never" } }
-    ],
+    // Basic styling rules
     "react/jsx-indent":               ["error", 2],
     "react/jsx-indent-props":         ["error", 2],
     "react/jsx-closing-tag-location": "error",
+    "react/no-unescaped-entities":    "off",
+    "indent":                         ["error", 2, { "ignoredNodes": ["JSXAttribute"] }],
+    "semi":                           "error",
+    "camelcase":                      ["error", { "properties": "always", "ignoreGlobals": true }],
+    "no-extra-semi":                  "error",
+    "quotes":                         ["error", "double", { "avoidEscape": true }],
+    "no-duplicate-imports":           "error",
+    "no-multiple-empty-lines":        [
+      "error", { "max": 2, "maxBOF": 0, "maxEOF": 1 }
+    ],
+    "eol-last": ["error", "always"],
+
+    // Other styling rules
+    "key-spacing":             ["error", { "align": "value", "beforeColon": false }],
+    "func-style":              ["error", "declaration", { "allowArrowFunctions": true }],
+    "react/jsx-curly-spacing": [
+      "error", { "when": "never", "children": { "when": "never" } }
+    ],
+
+    // Other spacing rules
+    "no-trailing-spaces":   "error",
+    "no-multi-spaces":      "error",
+    "block-spacing":        ["error", "always"],
+    "space-before-blocks":  ["error", "always"],
+    "keyword-spacing":      ["error", { "before": true, "after": true }],
+    "space-infix-ops":      ["error"],
+    "brace-style":          "error",
+    "comma-spacing":        ["error", { "before": false, "after": true }],
+    "object-curly-spacing": ["error", "always"],
+    "arrow-spacing":        ["error", { "before": true, "after": true }],
+    "comma-dangle":         ["error", "never"],
 
     // Linting
-    "no-console": ["error", { "allow": ["warn", "error"] }],
-    "no-duplicate-imports":   "error",
-    "no-redeclare":           "error",
-    "no-undef":               "error",
-    "no-unused-vars":         [
+    "no-redeclare":   "error",
+    "no-unused-vars": [
       "error",
-      { argsIgnorePattern: "^_", varsIgnorePattern: "React", caughtErrorsIgnorePattern: "^_" }
+      { argsIgnorePattern: "_", varsIgnorePattern: "_", caughtErrorsIgnorePattern: "_" }
     ],
-    "no-useless-escape": 0,
-    "no-shadow": "error",
-    "no-nested-ternary":   "error",
-    "no-unneeded-ternary": "error"
+    "no-undef":   "error",
+    "no-shadow":  "error",
+    "no-console": ["error", { "allow": ["warn", "error"] }]
   }
-  // "overrides": [
-  //   {
-  //     "files": ["**/*.jsx"],
-  //     "rules": {
-  //       "react/react-in-jsx-scope": "off"
-  //     }
-  //   }
-  // ]
 };
